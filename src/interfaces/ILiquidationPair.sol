@@ -14,13 +14,13 @@ interface ILiquidationPair {
    * @notice Computes the maximum amount of tokens that can be swapped in given the current state of the liquidation pair.
    * @return The maximum amount of tokens that can be swapped in.
    */
-  function maxAmountIn() external view returns (uint256);
+  function maxAmountIn() external returns (uint256);
 
   /**
    * @notice Gets the maximum amount of tokens that can be swapped out from the source.
    * @return The maximum amount of tokens that can be swapped out.
    */
-  function maxAmountOut() external view returns (uint256);
+  function maxAmountOut() external returns (uint256);
 
   /**
    * @notice Swaps the given amount of tokens in and ensures a minimum amount of tokens are received out.
