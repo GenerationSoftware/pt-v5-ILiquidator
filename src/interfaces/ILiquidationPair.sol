@@ -1,14 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { SD59x18 } from "prb-math/SD59x18.sol";
-
 interface ILiquidationPair {
   /**
    * @notice Get the address that will receive `tokenIn`.
    * @return Address of the target
    */
-  function target() external view returns (address);
+  function target() external returns (address);
 
   /**
    * @notice Computes the maximum amount of tokens that can be swapped in given the current state of the liquidation pair.
