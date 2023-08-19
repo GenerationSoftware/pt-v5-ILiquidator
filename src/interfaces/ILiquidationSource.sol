@@ -11,7 +11,8 @@ interface ILiquidationSource {
 
   /**
    * @notice Liquidate `amountIn` of `tokenIn` for `amountOut` of `tokenOut` and transfer to `account`.
-   * @param account Address of the account that will receive `tokenOut`
+   * @param sender Address that triggered the liquidation
+   * @param receiver Address of the account that will receive `tokenOut`
    * @param tokenIn Address of the token being sold
    * @param amountIn Amount of token being sold
    * @param tokenOut Address of the token being bought
@@ -19,7 +20,8 @@ interface ILiquidationSource {
    * @return bool Return true once the liquidation has been completed
    */
   function liquidate(
-    address account,
+    address sender,
+    address receiver,
     address tokenIn,
     uint256 amountIn,
     address tokenOut,
