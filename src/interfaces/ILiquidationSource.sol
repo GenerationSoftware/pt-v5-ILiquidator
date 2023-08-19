@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
-
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 interface ILiquidationSource {
@@ -24,7 +23,8 @@ interface ILiquidationSource {
     address tokenIn,
     uint256 amountIn,
     address tokenOut,
-    uint256 amountOut
+    uint256 amountOut,
+    bytes calldata _flashSwapData
   ) external returns (bool);
 
   /**

@@ -21,13 +21,15 @@ interface ILiquidationPair {
    * @param _amountOut The amount of tokens to receive out.
    * @param _amountInMax The maximum amount of tokens to send in.
    * @param _deadline The timestamp that the transaction must be executed before.
+   * @param _flashSwapData If non-zero, the _receiver is called with this data prior to 
    * @return The amount of tokens sent in.
    */
   function swapExactAmountOut(
     address _receiver,
     uint256 _amountOut,
     uint256 _amountInMax,
-    uint256 _deadline
+    uint256 _deadline,
+    bytes calldata _flashSwapData
   ) external returns (uint256);
 
   /**
