@@ -22,7 +22,6 @@ interface ILiquidationSource {
    * @param tokenOut Address of the token being bought
    * @param amountOut Amount of token being bought
    * @param flashSwapData If the length of this array is non-zero, then `receiver` address will cast to an IFlashSwapCallback and `flashSwapCallback` will be called.
-   * @return bool Return true once the liquidation has been completed
    */
   function liquidate(
     address sender,
@@ -32,7 +31,7 @@ interface ILiquidationSource {
     address tokenOut,
     uint256 amountOut,
     bytes calldata flashSwapData
-  ) external returns (bool);
+  ) external;
 
   /**
    * @notice Get the address that will receive `tokenIn`.
