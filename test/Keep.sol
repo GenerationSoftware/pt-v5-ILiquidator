@@ -4,7 +4,7 @@ pragma solidity 0.8.19;
 import "forge-std/Test.sol";
 
 contract KeepTest is Test {
-    function testOk() {
+    function testOk() public {
         assertTrue(true);
     }
 }
