@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/// @notice Emitted when flash swap data is passed to the liquidate function if flash swaps are not supported.
+error FlashSwapNotSupported();
+
 interface ILiquidationSource {
   /**
    * @notice Get the available amount of tokens that can be swapped.
@@ -17,6 +20,8 @@ interface ILiquidationSource {
    * @param amountIn Amount of token being sold
    * @param tokenOut Address of the token being bought
    * @param amountOut Amount of token being bought
+   * @dev If flash swaps are not supported, this function SHOULD revert with a `FlashSwapNotSupported`
+   *      error if flashSwapData is provided.
    * @return bool Return true once the liquidation has been completed
    */
   function liquidate(
