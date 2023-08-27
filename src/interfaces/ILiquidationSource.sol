@@ -14,16 +14,14 @@ interface ILiquidationSource {
 
   /**
    * @notice Liquidate `amountIn` of `tokenIn` for `amountOut` of `tokenOut` and transfer to `account`.
-   * @dev If flash swaps are not supported, this function SHOULD revert with a `FlashSwapNotSupported`
-   *      error if flashSwapData is provided.
+   * @dev If flash swaps are not supported by the source and the flashSwapData length is non-zero, then this function SHOULD revert with a `FlashSwapNotSupported`
    * @param sender Address that triggered the liquidation
    * @param receiver Address of the account that will receive `tokenOut`
    * @param tokenIn Address of the token being sold
    * @param amountIn Amount of token being sold
    * @param tokenOut Address of the token being bought
    * @param amountOut Amount of token being bought
-   * @param flashSwapData If this value is provided, the `receiver` address will be called with the flash swap
-   *        data through the `IFlashSwapCallback.flashSwapCallback` interface.
+   * @param flashSwapData If the length of this array is non-zero, then `receiver` address will cast to an IFlashSwapCallback and `flashSwapCallback` will be called.
    * @return bool Return true once the liquidation has been completed
    */
   function liquidate(
