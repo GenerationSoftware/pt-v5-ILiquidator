@@ -9,7 +9,7 @@ interface IFlashSwapCallback {
     /// @param _sender The address that triggered the liquidation swap
     /// @param _amountOut The amount of tokens that were sent to the receiver
     /// @param _amountIn The amount of tokens expected to be sent to the target
-    /// @param _flashSwapData The flash swap data that was passed into the swap function. E.g. for the Router this is the original caller.
+    /// @param _flashSwapData The flash swap data that was passed into the swap function.
     function flashSwapCallback(
         address _liquidationPair,
         address _sender,
