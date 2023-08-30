@@ -36,11 +36,4 @@ interface ILiquidationPair {
    * @return The amount of tokens to send in.
    */
   function computeExactAmountIn(uint256 _amountOut) external returns (uint256);
-
-  /**
-   * @notice Computes the amount out given an amount in. Amount out will always be slightly less than the actual amount out.
-   * @param _amountIn The amount of tokens to send in.
-   * @return The amount of tokens to receive out.
-   */
-  function estimateAmountOut(uint256 _amountIn) external returns (uint256);
 }
