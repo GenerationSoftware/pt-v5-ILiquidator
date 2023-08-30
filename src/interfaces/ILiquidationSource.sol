@@ -21,20 +21,18 @@ interface ILiquidationSource {
     address receiver,
     address tokenOut,
     uint256 amountOut
-  ) external;
+  ) external returns (bytes memory);
 
   /**
    * @notice Verifies that tokens have been transferred in.
-   * @param sender Address that triggered the liquidation
-   * @param receiver Address of the account that will receive `tokenOut`
    * @param tokenIn Address of the token being sold
    * @param amountIn Amount of token being sold
+   * @param transferTokensOutData Data returned by the corresponding transferTokensOut call
    */
   function verifyTokensIn(
-    address sender,
-    address receiver,
     address tokenIn,
-    uint256 amountIn
+    uint256 amountIn,
+    bytes calldata transferTokensOutData
   ) external;
 
   /**
