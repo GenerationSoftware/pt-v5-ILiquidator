@@ -2,6 +2,14 @@
 pragma solidity ^0.8.0;
 
 interface ILiquidationSource {
+
+  /**
+   * @notice Emitted when a new liquidation pair is set for the given `tokenOut`.
+   * @param tokenOut The token being liquidated
+   * @param liquidationPair The new liquidation pair for the token
+   */
+  event LiquidationPairSet(address indexed tokenOut, address indexed liquidationPair);
+
   /**
    * @notice Get the available amount of tokens that can be swapped.
    * @param tokenOut Address of the token to get available balance for
@@ -41,4 +49,12 @@ interface ILiquidationSource {
    * @return address Address of the target
    */
   function targetOf(address tokenIn) external returns (address);
+
+  /**
+   * @notice Checks if a liquidation pair can be used to liquidate the given tokenOut from this source.
+   * @param tokenOut The address of the token to liquidate
+   * @param liquidationPair The address of the liquidation pair that is being checked
+   * @return bool True if the liquidation pair can be used, false otherwise
+   */
+  function isLiquidationPair(address tokenOut, address liquidationPair) external returns (bool);
 }
