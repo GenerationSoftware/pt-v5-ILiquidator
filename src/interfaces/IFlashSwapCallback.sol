@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 /// @notice Interface for the flash swap callback
 interface IFlashSwapCallback {
-
     /// @notice Called on the token receiver by the LiquidationPair during a liquidation if the flashSwap data length is non-zero
     /// @param _sender The address that triggered the liquidation swap
     /// @param _amountOut The amount of tokens that were sent to the receiver
