@@ -8,19 +8,19 @@ interface ILiquidationPair {
      * @notice The liquidation source that the pair is using.
      * @dev The source executes the actual token swap, while the pair handles the pricing.
      */
-    function source() external returns (ILiquidationSource);
+    function source() external view returns (ILiquidationSource);
 
     /**
      * @notice Returns the token that is used to pay for auctions.
      * @return address of the token coming in
      */
-    function tokenIn() external returns (address);
+    function tokenIn() external view returns (address);
 
     /**
      * @notice Returns the token that is being auctioned.
      * @return address of the token coming out
      */
-    function tokenOut() external returns (address);
+    function tokenOut() external view returns (address);
 
     /**
      * @notice Get the address that will receive `tokenIn`.

@@ -14,7 +14,7 @@ interface ILiquidationSource {
      * @param tokenOut Address of the token to get available balance for
      * @return uint256 Available amount of `token`
      */
-    function liquidatableBalanceOf(address tokenOut) external returns (uint256);
+    function liquidatableBalanceOf(address tokenOut) external view returns (uint256);
 
     /**
      * @notice Transfers tokens to the receiver
@@ -43,7 +43,7 @@ interface ILiquidationSource {
      * @param tokenIn Address of the token to get the target address for
      * @return address Address of the target
      */
-    function targetOf(address tokenIn) external returns (address);
+    function targetOf(address tokenIn) external view returns (address);
 
     /**
      * @notice Checks if a liquidation pair can be used to liquidate the given tokenOut from this source.
@@ -51,5 +51,5 @@ interface ILiquidationSource {
      * @param liquidationPair The address of the liquidation pair that is being checked
      * @return bool True if the liquidation pair can be used, false otherwise
      */
-    function isLiquidationPair(address tokenOut, address liquidationPair) external returns (bool);
+    function isLiquidationPair(address tokenOut, address liquidationPair) external view returns (bool);
 }
